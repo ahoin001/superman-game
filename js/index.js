@@ -141,8 +141,10 @@ return obj1y + 150  >= obj2y
 
 
 function gameOver(){
+    // draw clear rect over e=game
     ctx.clearRect(0, 0, 1000, 500);
 
+    // redraw backgrounnd
     drawBackground();
 
     const tiredSuperman = new Image();
@@ -152,7 +154,7 @@ function gameOver(){
     tiredSuperman.src = "./images/lost.png";
     
     tiredSuperman.onload = () => {
-        ctx.drawImage(tiredSuperman, 400, 300, 150, 150);
+        // ctx.drawImage(tiredSuperman, 400, 300, 150, 150);
         // joke example
         ctx.drawImage(tiredSuperman, 400, 300, 250, 250);
     };
