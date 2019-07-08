@@ -29,13 +29,18 @@ function drawBackground(){
 
 // 2. add images to the board
 
+// make an instance of image class
 const supermanImg = new Image();
-// console.log(supermanImg);
+
+// console.log(`image is ${supermanImg}`);
 // <img src="">
 
-// navigate to this file as you were in html file
-supermanImg.src = "./images/superman.png";
+// navigate to this file as you were in html file, .src is the image reference to make this var an image
+// supermanImg.src = "./images/superman.png";
+// joke example
+supermanImg.src = "./images/cp3.png";
 
+// create starting positions for superman (used later)
 let supermanX = 0;
 let supermanY = 200;
 
@@ -43,8 +48,10 @@ let supermanY = 200;
 //     ctx.drawImage(supermanImg, supermanX, supermanY, 150, 150);
 // }
 
+
 const fireballImg = new Image();
-fireballImg.src = "./images/fireball.png";
+// fireballImg.src = "./images/fireball.png";
+fireballImg.src = "./images/trophy.png";
 
 let fireballX = 800;
 let fireballY = 200;
@@ -54,8 +61,13 @@ let fireballY = 200;
 // };
 
 function drawEverything(){
+
+    // places images on given coordinates and set height and width to 150
     ctx.drawImage(supermanImg, supermanX, supermanY, 150, 150);
-    ctx.drawImage(fireballImg, fireballX, fireballY, 70, 70);
+    // ctx.drawImage(fireballImg, fireballX, fireballY, 70, 70);
+
+    // joke example
+    ctx.drawImage(fireballImg, fireballX, fireballY, 120, 120);
 
     if(checkCollision(supermanX, supermanY, fireballX, fireballY)){
         console.log('CRASH!!!!!!');
@@ -126,15 +138,23 @@ return obj1y + 150  >= obj2y
     && obj1x <= obj2x + 70;
 };
 
+
+
 function gameOver(){
     ctx.clearRect(0, 0, 1000, 500);
 
     drawBackground();
 
     const tiredSuperman = new Image();
-    tiredSuperman.src = "./images/tired-superman.png";
+
+    // tiredSuperman.src = "./images/tired-superman.png";
+    // joke example
+    tiredSuperman.src = "./images/lost.png";
+    
     tiredSuperman.onload = () => {
         ctx.drawImage(tiredSuperman, 400, 300, 150, 150);
+        // joke example
+        ctx.drawImage(tiredSuperman, 400, 300, 250, 250);
     };
 
     isOver = true;
