@@ -87,20 +87,27 @@ function drawingLoop(){
 
     fireballX -= 5;
 
+    // if fireball goes off screen left
     if(fireballX < -70){
+        // move it back to right of canvas
         fireballX = 1000;
+
+        // and give the y location a random value
         fireballY = Math.floor(Math.random() * 430);
     }
+
+    //redraw everything with new inputs
     drawEverything();
 
     // requestAnimationFrame(() => drawingLoop());
 
+    // why
     if(isOver === false){
         requestAnimationFrame(() => drawingLoop());
     }
 }
 
-
+// read keyboard input using event object
 document.onkeydown = function (event) {
     // console.log(event);
 
@@ -108,15 +115,16 @@ document.onkeydown = function (event) {
         case 37: // left
         supermanX -= 10;
         break;
+
+        case 38: //down
+        supermanY -= 10;
+        break;
+        
         case 39: // right
         supermanX += 10;
         break;
 
-        case 38:
-        supermanY -= 10;
-        break;
-
-        case 40:
+        case 40: // up
         supermanY += 10;
         break;
 
